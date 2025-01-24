@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\Marcacontroller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +27,10 @@ Route::view('/panel', 'panel.index')->name('panel');
 
 //routas para categorias => php artisan route:list
 Route::resource('categorias',CategoriaController::class);
+
+Route::resource('marcas',MarcaController::class);
+
+
 
 //pagina errors
 Route::get('/401', function () {
