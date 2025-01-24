@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\Marcacontroller;
+use App\Http\Controllers\PresentacionController;
+use App\Http\Controllers\PresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,7 @@ Route::resource('categorias',CategoriaController::class);
 
 Route::resource('marcas',MarcaController::class);
 
+Route::resource('presentacion',PresentacionController::class);
 
 
 //pagina errors
