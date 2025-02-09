@@ -50,7 +50,9 @@ class PresentacionController extends Controller
     public function update(UpdatePresentacionRequest $request, Presentacion $presentacion) //Request $request, $id
     {
         //dd($request);
-        $presentacion->caracteristica->update($request->all());
+        $validated = $request->validated();
+         Caracteristica::where('id',$presentacion->caracteristica->id)->update($validated);
+       // $presentacion->caracteristica->update($request->all());
         
         return redirect()->route('presentacion.index')->with('success', 'Presentacion editada');
     }

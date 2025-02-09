@@ -24,7 +24,7 @@ class StorePresentacionRequest extends FormRequest
     public function rules()
      {# unique:caracteristicas,nombre'
         return [
-            'nombre' => 'required|max:150|min:2',
+            'nombre' => 'required|max:150|min:2|unique:App\Models\Caracteristica,nombre',
             'descripcion' => 'nullable|max:255'
         ];
     }

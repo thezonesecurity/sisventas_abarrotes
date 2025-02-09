@@ -26,7 +26,7 @@ class UpdateCategoriaRequest extends FormRequest
         $categoria = $this->route('categoria');
         $caracteristicaID = $categoria->caracteristica->id;
         return [
-             'nombre' => 'required|max:150|min:2,'.$caracteristicaID,
+             'nombre' => 'required|max:150|min:2|unique:App\Models\Caracteristica,nombre,'.$caracteristicaID,
              'descripcion' => 'nullable|max:255'
         ];
     }

@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\Marcacontroller;
 use App\Http\Controllers\PresentacionController;
 use App\Http\Controllers\PresController;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,12 +29,12 @@ Route::view('/panel', 'panel.index')->name('panel');
 //Route::view('/categorias', 'categorias.index')->name('categoria');
 
 //routas para categorias => php artisan route:list
-Route::resource('categorias',CategoriaController::class);
-
-Route::resource('marcas',MarcaController::class);
-
-Route::resource('presentacion',PresentacionController::class);
-
+Route::resources([
+    'categorias' => CategoriaController::class,
+    'marcas' => MarcaController::class,
+    'presentacion' => PresentacionController::class,
+    'productos' => ProductoController::class
+]);
 
 //pagina errors
 Route::get('/401', function () {

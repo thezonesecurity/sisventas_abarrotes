@@ -47,8 +47,9 @@ class MarcaController extends Controller
 
     public function update(UpdateMarcaRequest $request, Marca $marca)//Request $request, $id 
     {
-        $marca->caracteristica->update($request->all());
-        
+        //$marca->caracteristica->update($request->all());
+        $validated = $request->validated();
+        Caracteristica::where('id',$marca->caracteristica->id)->update($validated);
         return redirect()->route('marcas.index')->with('success', 'marca editada');
     }
 

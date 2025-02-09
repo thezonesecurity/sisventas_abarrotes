@@ -23,10 +23,10 @@ class UpdatePresentacionRequest extends FormRequest
      */
     public function rules()
     {
-        $categoria = $this->route('presentacion');
-        $caracteristicaID = $categoria->caracteristica->id;
+        $presentacion = $this->route('presentacion');
+        $presentacionID = $presentacion->caracteristica->id;
         return [
-             'nombre' => 'required|max:150|min:2,'.$caracteristicaID,
+             'nombre' => 'required|max:150|min:2|unique:App\Models\Caracteristica,nombre,'.$presentacionID,
              'descripcion' => 'nullable|max:255'
         ];
     }
